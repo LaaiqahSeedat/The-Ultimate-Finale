@@ -14,12 +14,16 @@
                 <div id="pimage" runat="server">
 
              </div>
-   <div class="mt-10">
-    <asp:Button ID="btn_cart" runat="server" Text="Add to Cart" class="genric-btn primary-border" OnClick="AddToCart_Click" />
-    </div>
-    <div class="mt-10">
-    <asp:Button ID="btn_remove" runat="server" Text="Remove Product" class="genric-btn primary-border" OnClick="RemoveProduct_Click" />
-    </div>
+    <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-dark"  onclick="addtocart()"><i class="fa fa-shopping-cart"></i>&nbsp;Add To Cart</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-dark"  onclick="removeproduct()"><i class="fa fa-product-management"></i>&nbsp;Remove Product</button>
+            </div>
+        </div> 
         </div>                      
     </section>
 

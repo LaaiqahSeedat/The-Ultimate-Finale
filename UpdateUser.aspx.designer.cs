@@ -42,13 +42,13 @@ namespace Group_MaskInc_FrontEnd
         protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
 
         /// <summary>
-        /// BusinessT control.
+        /// Surname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText BusinessT;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Surname;
 
         /// <summary>
         /// Email control.
@@ -60,24 +60,6 @@ namespace Group_MaskInc_FrontEnd
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Email;
 
         /// <summary>
-        /// Contact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Contact;
-
-        /// <summary>
-        /// Address control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Address;
-
-        /// <summary>
         /// Password control.
         /// </summary>
         /// <remarks>
@@ -87,22 +69,13 @@ namespace Group_MaskInc_FrontEnd
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password;
 
         /// <summary>
-        /// ConfirmPassword control.
+        /// ConfirmPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword ConfirmPassword;
-
-        /// <summary>
-        /// btn_update control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_update;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword ConfirmPass;
 
         /// <summary>
         /// error control.

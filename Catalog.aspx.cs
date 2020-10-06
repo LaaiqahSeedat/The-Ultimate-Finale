@@ -14,19 +14,25 @@ namespace Group_MaskInc_FrontEnd
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int ID = Convert.ToInt32(Session["LoggedInUserID"]);
+            var user = sr.GetUser(ID);
+            if (Session["LoggedInUserID"] != null)
+            {
+                if (user.Usertype.Equals("client"))
+                {
+                    //removeproduct.Visible = false;
+                }
+                else if (user.Usertype.Equals("admin"))
+                {
+                    //addtocart.Visible = false;
+                }
+            }
 
             dynamic masks = sr.Getallproducts();
             string display = " ";
-            int n = 0;
-            display += "<div class='row'>";
 
             foreach (GroupServiceReference.Product p in masks)
             {
-                if (n == 4)
-                {     
-                    display += "</div><br/><div class='row'>";
-                    n = 0;
-                }
                 display += "<div class='col-sm-6 col-lg-4 mb-4' data-aos='fade-up'>";
                 display += "<div class='block-4 text-center border'><figure class='block-4-image'>";
                 display += "<a href='AboutProduct.aspx?ID=" + p.Product_Id + "'><img src='" + p.Image + "'alt='" + p.Name + "'class=ímg-fluid'></a></figure>";
@@ -34,10 +40,7 @@ namespace Group_MaskInc_FrontEnd
                 display += "<h3><a href='AboutProduct.aspx/ID=" + p.Product_Id + "'>" + p.Name + "</a></h3><p class='mb-0>" + p.Description + "</p>";
                 display += "<p class='text-primary font-weight-bold'>R " + Math.Round(p.Unit_Price, 2) + "</p>";
                 display += "</div></div></div>";
-
-                n++;
             }
-            display += "</div>";
             cat.InnerHtml = display;
 
             //-------------------------Getting by price----------------------//
@@ -57,19 +60,19 @@ namespace Group_MaskInc_FrontEnd
             query = "P3";
             if (query.Equals("P1"))
             {
-                products = sr.Getproductbyprice(0, 15);
+                products = sr.Getproductbyprice(0, 25);
                 prices.Items.FindByValue("P1").Selected = true;
 
             }
             else if (query.Equals("P2"))
             {
-                products = sr.Getproductbyprice(16, 30);
+                products = sr.Getproductbyprice(26, 50);
                 prices.Items.FindByValue("P2").Selected = true;
 
             }
             else if (query.Equals("P3"))
             {
-                products = sr.Getproductbyprice(31, 50);
+                products = sr.Getproductbyprice(51, 150);
                 prices.Items.FindByValue("P3").Selected = true;
 
 
@@ -77,34 +80,30 @@ namespace Group_MaskInc_FrontEnd
             }
             else if (query.Equals("P4"))
             {
-                products = sr.Getproductbyprice(51, 10000);
-                prices.Items.FindByValue("P5").Selected = true;
+
                 cat.InnerHtml = display;
+            }
+            else if (query.Equals("P5"))
+            {
+                products = sr.Getproductbyprice(1001, 10000);
+                prices.Items.FindByValue("P5").Selected = true;
+
             }
 
             //-----------------DISPLAY BY SORTING------------//
-            foreach (GroupServiceReference.Product p in masks)
+            foreach (GroupServiceReference.Product p in products)
             {
-                if (n == 4)
-                {
-                    display += "</div><br/><div class='row'>";
-                    n = 0;
-                }
                 display += "<div class='col-sm-6 col-lg-4 mb-4' data-aos='fade-up'>";
                 display += "<div class='block-4 text-center border'><figure class='block-4-image'>";
                 display += "<a href='AboutProduct.aspx?ID=" + p.Product_Id + "'><img src='" + p.Image + "'alt='" + p.Name + "'class=ímg-fluid'></a></figure>";
                 display += "<div class='block-4-text p-4'>";
                 display += "<h3><a href='AboutProduct.aspx/ID=" + p.Product_Id + "'>" + p.Name + "</a></h3><p class='mb-0>" + p.Description + "</p>";
                 display += "<p class='text-primary font-weight-bold'>R " + Math.Round(p.Unit_Price, 2) + "</p>";
-                // display += "<div class='col-md-3'>";
-                // display += "<button class='btn btn-dark' title='Add To Cart' onClick='addtocart(" + p.Product_Id + ")'><i class='fa fa-shopping-cart'></i></button>";
-                //display += "</div>";
                 display += "</div></div></div>";
-
-                n++;
             }
-            display += "</div>";
+
             cat.InnerHtml = display;
+
             //--------------------------Getting by size-----------------------//
             sizes.Items.FindByValue("S1").Selected = false;
             sizes.Items.FindByValue("S2").Selected = false;
@@ -117,28 +116,16 @@ namespace Group_MaskInc_FrontEnd
                 products = sr.Getproductbysize(1);
                 sizes.Items.FindByValue("S1").Selected = true;
                 //-----------------DISPLAY BY SORTING------------//
-                foreach (GroupServiceReference.Product p in masks)
+                foreach (GroupServiceReference.Product p in products)
                 {
-                    if (n == 4)
-                    {
-                        display += "</div><br/><div class='row'>";
-                        n = 0;
-                    }
                     display += "<div class='col-sm-6 col-lg-4 mb-4' data-aos='fade-up'>";
                     display += "<div class='block-4 text-center border'><figure class='block-4-image'>";
                     display += "<a href='AboutProduct.aspx?ID=" + p.Product_Id + "'><img src='" + p.Image + "'alt='" + p.Name + "'class=ímg-fluid'></a></figure>";
                     display += "<div class='block-4-text p-4'>";
                     display += "<h3><a href='AboutProduct.aspx/ID=" + p.Product_Id + "'>" + p.Name + "</a></h3><p class='mb-0>" + p.Description + "</p>";
                     display += "<p class='text-primary font-weight-bold'>R " + Math.Round(p.Unit_Price, 2) + "</p>";
-                    // display += "<div class='col-md-3'>";
-                    // display += "<button class='btn btn-dark' title='Add To Cart' onClick='addtocart(" + p.Product_Id + ")'><i class='fa fa-shopping-cart'></i></button>";
-                    //display += "</div>";
                     display += "</div></div></div>";
-
-                    n++;
                 }
-                display += "</div>";
-                cat.InnerHtml = display;
 
                 cat.InnerHtml = display;
             }
@@ -147,27 +134,17 @@ namespace Group_MaskInc_FrontEnd
                 products = sr.Getproductbysize(2);
                 sizes.Items.FindByValue("S2").Selected = true;
                 //-----------------DISPLAY BY SORTING------------//
-                foreach (GroupServiceReference.Product p in masks)
+                foreach (GroupServiceReference.Product p in products)
                 {
-                    if (n == 4)
-                    {
-                        display += "</div><br/><div class='row'>";
-                        n = 0;
-                    }
                     display += "<div class='col-sm-6 col-lg-4 mb-4' data-aos='fade-up'>";
                     display += "<div class='block-4 text-center border'><figure class='block-4-image'>";
                     display += "<a href='AboutProduct.aspx?ID=" + p.Product_Id + "'><img src='" + p.Image + "'alt='" + p.Name + "'class=ímg-fluid'></a></figure>";
                     display += "<div class='block-4-text p-4'>";
                     display += "<h3><a href='AboutProduct.aspx/ID=" + p.Product_Id + "'>" + p.Name + "</a></h3><p class='mb-0>" + p.Description + "</p>";
                     display += "<p class='text-primary font-weight-bold'>R " + Math.Round(p.Unit_Price, 2) + "</p>";
-                    // display += "<div class='col-md-3'>";
-                    // display += "<button class='btn btn-dark' title='Add To Cart' onClick='addtocart(" + p.Product_Id + ")'><i class='fa fa-shopping-cart'></i></button>";
-                    //display += "</div>";
                     display += "</div></div></div>";
-
-                    n++;
                 }
-                display += "</div>";
+
                 cat.InnerHtml = display;
             }
             else if (query.Equals("S3"))
@@ -175,27 +152,17 @@ namespace Group_MaskInc_FrontEnd
                 products = sr.Getproductbysize(3);
                 sizes.Items.FindByValue("S3").Selected = true;
                 //-----------------DISPLAY BY SORTING------------//
-                foreach (GroupServiceReference.Product p in masks)
+                foreach (GroupServiceReference.Product p in products)
                 {
-                    if (n == 4)
-                    {
-                        display += "</div><br/><div class='row'>";
-                        n = 0;
-                    }
                     display += "<div class='col-sm-6 col-lg-4 mb-4' data-aos='fade-up'>";
                     display += "<div class='block-4 text-center border'><figure class='block-4-image'>";
                     display += "<a href='AboutProduct.aspx?ID=" + p.Product_Id + "'><img src='" + p.Image + "'alt='" + p.Name + "'class=ímg-fluid'></a></figure>";
                     display += "<div class='block-4-text p-4'>";
                     display += "<h3><a href='AboutProduct.aspx/ID=" + p.Product_Id + "'>" + p.Name + "</a></h3><p class='mb-0>" + p.Description + "</p>";
                     display += "<p class='text-primary font-weight-bold'>R " + Math.Round(p.Unit_Price, 2) + "</p>";
-                    // display += "<div class='col-md-3'>";
-                    // display += "<button class='btn btn-dark' title='Add To Cart' onClick='addtocart(" + p.Product_Id + ")'><i class='fa fa-shopping-cart'></i></button>";
-                    //display += "</div>";
                     display += "</div></div></div>";
-
-                    n++;
                 }
-                display += "</div>";
+
                 cat.InnerHtml = display;
             }
             else if (query.Equals("S4"))
@@ -207,30 +174,31 @@ namespace Group_MaskInc_FrontEnd
             {
                 products = sr.Getproductbysize(5);
                 sizes.Items.FindByValue("S5").Selected = true;
-                foreach (GroupServiceReference.Product p in masks)
+                //-----------------DISPLAY BY SORTING------------//
+                foreach (GroupServiceReference.Product p in products)
                 {
-                    if (n == 4)
-                    {
-                        display += "</div><br/><div class='row'>";
-                        n = 0;
-                    }
                     display += "<div class='col-sm-6 col-lg-4 mb-4' data-aos='fade-up'>";
                     display += "<div class='block-4 text-center border'><figure class='block-4-image'>";
                     display += "<a href='AboutProduct.aspx?ID=" + p.Product_Id + "'><img src='" + p.Image + "'alt='" + p.Name + "'class=ímg-fluid'></a></figure>";
                     display += "<div class='block-4-text p-4'>";
                     display += "<h3><a href='AboutProduct.aspx/ID=" + p.Product_Id + "'>" + p.Name + "</a></h3><p class='mb-0>" + p.Description + "</p>";
                     display += "<p class='text-primary font-weight-bold'>R " + Math.Round(p.Unit_Price, 2) + "</p>";
-                    // display += "<div class='col-md-3'>";
-                    // display += "<button class='btn btn-dark' title='Add To Cart' onClick='addtocart(" + p.Product_Id + ")'><i class='fa fa-shopping-cart'></i></button>";
-                    //display += "</div>";
                     display += "</div></div></div>";
-
-                    n++;
                 }
-                display += "</div>";
+
                 cat.InnerHtml = display;
             }
-        }      
-       
+        }
+
+
+        protected void submit_addtocart(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void submit_removeproduct(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -24,24 +24,6 @@ namespace Group_MaskInc_FrontEnd
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pimage;
 
         /// <summary>
-        /// btn_cart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_cart;
-
-        /// <summary>
-        /// btn_remove control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_remove;
-
-        /// <summary>
         /// prod control.
         /// </summary>
         /// <remarks>

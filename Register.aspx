@@ -61,7 +61,7 @@
                                 class="single-input" runat="server" id="ConfirmPass">
                         </div>
                         <div class="mt-10">
-                             <asp:Button ID="btn_register" runat="server" Text="Register" class="genric-btn primary-border" OnClick="Register_Click" />
+                            <asp:Button ID="btn_register" class="log-btn" runat="server" Text="Register" Width="240px" />
                         </div>
                         <div class="mt-10">
                             <asp:Label ID="error" runat="server" Text="" visible="false" ></asp:Label>
