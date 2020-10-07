@@ -11,7 +11,7 @@
                     <div class="col-lg-8 col-md-8">
                         <h3 class="mb-30">Login</h3>
 
-                        <h5 class="mt-10">Email</h5>
+                        <h4 class="mt-10">Email</h4>
                         <div class="mt-10">
                             <input type="email" name="first_name" 
                              
@@ -24,8 +24,8 @@
                                 class="single-input" runat="server" id="Password">
                         </div>
                         <div class="mt-10">
-                            <asp:Button ID="login" class="log-btn" runat="server" Text="Login" />
-                            <a href="Register.aspx" class="btn btn-secondary py-3 px-4">Register</a>
+                            <asp:Button ID="login" runat="server" Text="Login" class="genric-btn primary-border" OnClick="login_Click" />
+                            <a href="Register.aspx" class="genric-btn info-border">Register</a>
                         </div>
                         <div class="mt-10">
                             <asp:Label ID="error" runat="server" Text="Incorrect Password or Username" visible="false" ></asp:Label>

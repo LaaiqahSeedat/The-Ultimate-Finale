@@ -17,7 +17,7 @@ namespace Group_MaskInc_FrontEnd
         }
 
 
-        protected void btn_Register(object sender, EventArgs e)
+        protected void Register_Click(object sender, EventArgs e)
         {
             if (Password.Value != ConfirmPass.Value)
             {

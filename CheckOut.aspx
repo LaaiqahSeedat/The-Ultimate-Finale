@@ -98,7 +98,6 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="payment-method">
-                            
                     <button id="Payment_Btn" type="submit">Proceed to Payment</button>
                         </div>
                     </div>

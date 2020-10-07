@@ -41,23 +41,12 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
-    <!-- Search model -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search model end -->
     <!-- Header Section Begin -->
     <header class="header-section">
         <div class="container-fluid">
             <div class="inner-header">
                 <div class="logo">
-                    <a href="Home.aspx"><img src="assets/img/Logo.png" alt=""></a>
+                    <a href="Home.aspx"><img src="assets/img/Logo.png" alt="Mask.Inc"></a>
                 </div>
                 <div class="header-right">
                     <a href="UpdateUser.aspx">
@@ -67,12 +56,9 @@
                         <img src="assets/img/icons/cart2.png" alt="">
                         <span>0</span>
                     </a>
+                     <a href="#" runat="server" class="site-btn" onserverclick="Logout_Click">Log Out</a>
                 </div>
-                <div class="user-access">
-                
-                    <a href="Logout.aspx" class="in" onclick="Logout()">LogOut</a>
-                </div>
-                <nav class="main-menu mobile-menu">
+                <nav class="main-menu mobile-menu" runat="server" id="ClientNav">
                     <ul>
                         <li><a class="active" href="Home.aspx">Home</a></li>
                         <li>
@@ -83,22 +69,30 @@
                                 <li><a href="Custom.aspx">Custom</a></li>
                                 <li><a href="Kids.aspx">Kids</a></li>
                                 <li><a href="Nano Range.aspx">Nano Range</a></li>
-                               
                             </ul>
                         </li>
                         <li><a href="CheckOut.aspx">CheckOut</a></li>
                         <li><a href="ShoppingCart.aspx">ShoppingCart</a></li>   
-                         <li>
-                            <a href="AdminMain.aspx">Admin</a>
+
+                    </ul>
+                </nav>
+           <nav class="main-menu mobile-menu" runat="server" id="AdminNav">
+                    <ul>
+                        <li><a class="active" href="Home.aspx">Home</a></li>
+                        <li>
+                            <a href="Catalog.aspx">Categories</a>
                             <ul class="sub-menu">
-                                <li><a href="AdminSection.aspx">AddProduct</a></li>
-                              
-                                <li><a href="InvoiceByDate.aspx">Invoice</a></li>
-                                <li><a href="Reports.aspx">Reports</a></li>
-                                <li><a href="UpdateAdmin.aspx">Update</a></li>
-                               
+                                <li><a href="Casual.aspx">Casual</a></li>
+                                <li><a href="Cultural.aspx">Cultural</a></li>
+                                <li><a href="Custom.aspx">Custom</a></li>
+                                <li><a href="Kids.aspx">Kids</a></li>
+                                <li><a href="Nano Range.aspx">Nano Range</a></li>
                             </ul>
-                        </li>
+                        </li>  
+                                <li><a href="InvoiceByDate.aspx">Invoices</a></li>
+                                <li><a href="Reports.aspx">Reports</a></li>
+                                <li><a href="UpdateAdmin.aspx">Update Admin</a></li>
+                                <li><a href="AddProduct.aspx">Add Product</a></li>
                     </ul>
                 </nav>
             </div>

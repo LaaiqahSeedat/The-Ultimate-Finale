@@ -331,6 +331,12 @@
   <wsdl:message name="IGroupService_GetDelivery_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDeliveryResponse" />
   </wsdl:message>
+  <wsdl:message name="IGroupService_AddtoCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddtoCart" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_AddtoCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddtoCartResponse" />
+  </wsdl:message>
   <wsdl:message name="IGroupService_EditFromCart_InputMessage">
     <wsdl:part name="parameters" element="tns:EditFromCart" />
   </wsdl:message>
@@ -607,6 +613,10 @@
     <wsdl:operation name="GetDelivery">
       <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/GetDelivery" message="tns:IGroupService_GetDelivery_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/GetDeliveryResponse" message="tns:IGroupService_GetDelivery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddtoCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/AddtoCart" message="tns:IGroupService_AddtoCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/AddtoCartResponse" message="tns:IGroupService_AddtoCart_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditFromCart">
       <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/EditFromCart" message="tns:IGroupService_EditFromCart_InputMessage" />
@@ -1130,6 +1140,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDelivery">
       <soap:operation soapAction="http://tempuri.org/IGroupService/GetDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddtoCart">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/AddtoCart" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -14,16 +14,12 @@
                 <div id="pimage" runat="server">
 
              </div>
-    <div class="row">
-            <div class="col-md-6">
-                <button class="btn btn-dark"  onclick="addtocart()"><i class="fa fa-shopping-cart"></i>&nbsp;Add To Cart</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <button class="btn btn-dark"  onclick="removeproduct()"><i class="fa fa-product-management"></i>&nbsp;Remove Product</button>
-            </div>
-        </div> 
+   <div class="mt-10" id="btn_AddtoCart" runat="server">
+       <a href="#" runat="server" class="site-btn" name="AddToCart" onserverclick="Unnamed_ServerClick">Add to Cart</a>
+    </div>
+    <div class="mt-10" id="btn_removeProduct" runat="server">
+         <a href="#" runat="server" class="site-btn" onserverclick="Unnamed_ServerClick1">Remove Product</a>
+    </div>
         </div>                      
     </section>
 

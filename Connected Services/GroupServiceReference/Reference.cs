@@ -1711,6 +1711,12 @@ namespace Group_MaskInc_FrontEnd.GroupServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGroupService/GetDelivery", ReplyAction="http://tempuri.org/IGroupService/GetDeliveryResponse")]
         System.Threading.Tasks.Task<Group_MaskInc_FrontEnd.GroupServiceReference.Delivery> GetDeliveryAsync(int DeliveryID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGroupService/AddtoCart", ReplyAction="http://tempuri.org/IGroupService/AddtoCartResponse")]
+        bool AddtoCart(int ClientId, int ProductID, int quantity, decimal price);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGroupService/AddtoCart", ReplyAction="http://tempuri.org/IGroupService/AddtoCartResponse")]
+        System.Threading.Tasks.Task<bool> AddtoCartAsync(int ClientId, int ProductID, int quantity, decimal price);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGroupService/EditFromCart", ReplyAction="http://tempuri.org/IGroupService/EditFromCartResponse")]
         bool EditFromCart(int ClientId, int ProductID, int quantity, decimal price);
         
@@ -2278,6 +2284,14 @@ namespace Group_MaskInc_FrontEnd.GroupServiceReference {
         
         public System.Threading.Tasks.Task<Group_MaskInc_FrontEnd.GroupServiceReference.Delivery> GetDeliveryAsync(int DeliveryID) {
             return base.Channel.GetDeliveryAsync(DeliveryID);
+        }
+        
+        public bool AddtoCart(int ClientId, int ProductID, int quantity, decimal price) {
+            return base.Channel.AddtoCart(ClientId, ProductID, quantity, price);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddtoCartAsync(int ClientId, int ProductID, int quantity, decimal price) {
+            return base.Channel.AddtoCartAsync(ClientId, ProductID, quantity, price);
         }
         
         public bool EditFromCart(int ClientId, int ProductID, int quantity, decimal price) {

@@ -10,11 +10,10 @@
         <div class="col-md-1"><label><strong>PRICES: </strong></label></div>
         <div class="col-md-2">
             <select class="form-control" onchange="Prizes()" id="prices" runat="server">
-                <option value="P1">R0 - R25</option>
-                <option value="P2">R26 - R50</option>
-                <option value="P3">R51 - R150</option>
-                <option value="P4">R151 - R1000</option>
-                <option value="P5">R1001 - R10000</option>      
+                <option value="P1">R0 - R15</option>
+                <option value="P2">R16 - R30</option>
+                <option value="P3">R31 - R50</option>
+                <option value="P4">51 and Up</option>      
             </select>
         </div>
     </div>
@@ -42,5 +41,4 @@
         <div class="col-md-12">
         </div>
     </div>
-   
 </asp:Content>

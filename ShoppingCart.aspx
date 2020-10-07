@@ -42,7 +42,7 @@
                             <td class='total'>
                                 R  <%= Math.Round(getCart(p.Product_Id).Price, 2) %>
                             </td>
-                            <td class='product-close' OnClick='btn_RemoveProduct_Click(<%= p.Product_Id %>)'>
+                            <td class="primary-btn" OnClick='btn_RemoveProduct_Click(<%= p.Product_Id %>)'>
                                 <a href="?rem=<%= p.Product_Id %>">X</a>
                             </td>
                         </tr>

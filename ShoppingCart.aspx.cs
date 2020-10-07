@@ -51,7 +51,7 @@ namespace Group_MaskInc_FrontEnd
             Summaries.InnerHtml = SummaryDisplay;
 
             String checkoutPage = " ";
-            checkoutPage = "<a href='CheckOut.aspx' class='primary-btn chechout-btn'>Proceed to Checkout</a>";
+            checkoutPage = "<a href='CheckOut.aspx' class='primary-btn'>Proceed to Checkout</a>";
 
             Checkout.InnerHtml = checkoutPage;
 
